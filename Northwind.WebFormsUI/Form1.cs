@@ -1,6 +1,7 @@
 ﻿using Northwind.Business.Abstract;
 using Northwind.Business.Concrete;
 using Northwind.DataAccess.Concrete.EntityFramework;
+using Northwind.DataAccess.Concrete.NHibernate;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,8 +18,9 @@ namespace Northwind.WebFormsUI
     {
         public Form1()
         {
-            InitializeComponent();
             _productService = new ProductManager(new EfProductDal());
+            InitializeComponent();
+
         }
 
         private IProductService _productService;

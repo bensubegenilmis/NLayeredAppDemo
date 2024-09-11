@@ -2,6 +2,7 @@
 using Northwind.Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace Northwind.DataAccess.Concrete.NHibernate
 {
@@ -17,19 +18,20 @@ namespace Northwind.DataAccess.Concrete.NHibernate
             throw new NotImplementedException();
         }
 
-        public Product Get(int id)
+
+        public Product Get(Expression<Func<Product, bool>> filter)
         {
             throw new NotImplementedException();
         }
 
-        public List<Product> GetAll()
+
+        public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
         {
-            throw new NotImplementedException();
-            //List<Product> products = new List<Product>
-            //{
-            //    new Product {ProductId = 1, CategoryID = 1,ProductName = "Laptop", QuantityPerUnit= "1 in a box", UnitPrice = 3000, UnitsInStock = 11}
-            //};
-            //return products;
+            List<Product> products = new List<Product>
+            {
+                new Product {ProductID = 1, CategoryID = 1,ProductName = "Laptop", QuantityPerUnit= "1 in a box", UnitPrice = 3000, UnitsInStock = 11}
+            };
+            return products;
         }
 
         public void Update(Product product)
